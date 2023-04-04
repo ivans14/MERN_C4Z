@@ -9,7 +9,18 @@ const userSchema = new Schema(
       required: true,
       unique: true,
       trim: false,
-      minlength: 3,
+      minlength: 1,
+    },
+    department: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: false,
+      minlength: 1,
+    },
+    attachment: {
+      type: String,
+      required: false,
     },
   },
   {
