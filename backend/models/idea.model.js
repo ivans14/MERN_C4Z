@@ -4,22 +4,47 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    description: {
+    Department: {
+      type: String,
+      required: true,
+      unique: false,
+      trim: false,
+      minlength: 1,
+    },
+    Description: {
       type: String,
       required: true,
       unique: true,
       trim: false,
       minlength: 1,
     },
-    department: {
+    Name: {
       type: String,
       required: true,
-      unique: true,
-      trim: false,
-      minlength: 1,
+      unique: false,
     },
-    attachment: {
+    Attachment: {
       type: String,
+      required: false,
+    },
+    Status: {
+      type: String,
+      default: 'new',
+      required: false,
+    },
+    Priority: {
+      type: String,
+      default: 'None',
+      required: false,
+    },
+    Assigned_to: {
+      type: String,
+      default: 'None',
+      required: false,
+    },
+    Notes: {
+      type: String,
+      default: 'None',
       required: false,
     },
   },

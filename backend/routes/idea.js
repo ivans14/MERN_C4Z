@@ -9,14 +9,28 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post(middleware.single('photo'), (req, res) => {
-  const description = req.body.description;
-  const department = req.body.department;
-  const attachment = req.body.attachment;
+  const Department = req.body.Department;
+  const Description = req.body.Description;
+  const Name = req.body.Name;
+  const Attachment = req.body.Attachment;
+  const Status = req.body.Status;
+  const Priority = req.body.Priority;
+  const Assigned_to = req.body.Assigned_to;
+  const Notes = req.body.Notes;
 
-  const newIdea = new Idea({description, department, attachment});
+  const newIdea = new Idea({
+    Department,
+    Description,
+    Name,
+    Attachment,
+    Status,
+    Priority,
+    Assigned_to,
+    Notes,
+  });
 
   newIdea
-    .save({attachment})
+    .save({Attachment})
     .then(() => res.json('Idea added!'))
     .catch((err) => res.status(400).json('Error: ' + err));
 });
